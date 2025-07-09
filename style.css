@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #e6efff;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #f0f6ff;
+  padding: 20px;
+  border-right: 2px solid #d0dfff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1677ff;
+  margin-bottom: 40px;
+}
+
+.add-task-btn {
+  padding: 8px 12px;
+  border: 1px solid #1677ff;
+  background-color: white;
+  border-radius: 20px;
+  color: #1677ff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.dashboard-btn {
+  width: 100%;
+  background-color: #1677ff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.top-icons span {
+  font-size: 18px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.welcome h2 {
+  color: #3366cc;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.task-section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.task {
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+
+.task input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.task .status {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+.status.todo {
+  background-color: #2d9cdb;
+}
+
+.status.in-progress {
+  background-color: #f2c94c;
+  color: #000;
+}
+
+.icons span {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clear-btn {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.progress-report h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.progress-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+  margin-bottom: 10px;
+}
+
+.card.todo h4 {
+  color: #2d9cdb;
+}
+
+.card.in-progress h4 {
+  color: #f2c94c;
+}
+
+.card.completed h4 {
+  color: #27ae60;
+}
+

@@ -1,9 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Task App </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listify Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1>Welcome to Task App</h1>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <span>📱</span><h1>Listify</h1>
+      </div>
+      <button class="add-task-btn">➕ Add tasks</button>
+      <nav class="nav">
+        <button class="dashboard-btn">🏠 Dashboard</button>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div></div>
+        <div class="top-icons">
+          <span>🔔</span>
+          <span>ℹ️</span>
+          <span>👤</span>
+        </div>
+      </header>
+
+      <div class="welcome">
+        <h2>Welcome back, Kritika!!</h2>
+      </div>
+
+      <section class="task-section">
+        <h3>Today</h3>
+        <div class="task">
+          <input type="checkbox" />
+          <span>Workshop Task</span>
+          <select class="status in-progress">
+            <option>In Progress</option>
+          </select>
+          <div class="icons">
+            <span>👁️</span>
+            <span>✏️</span>
+            <span>🗑️</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listify Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <span>📱</span><h1>Listify</h1>
+      </div>
+      <button class="add-task-btn">➕ Add tasks</button>
+      <nav class="nav">
+        <button class="dashboard-btn">🏠 Dashboard</button>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div></div>
+        <div class="top-icons">
+          <span>🔔</span>
+          <span>ℹ️</span>
+          <span>👤</span>
+        </div>
+      </header>
+
+      <div class="welcome">
+        <h2>Welcome back, Kritika!!</h2>
+      </div>
+
+      <section class="task-section">
+        <h3>Today</h3>
+        <div class="task">
+          <input type="checkbox" />
+          <span>Workshop Task</span>
+          <select class="status in-progress">
+            <option>In Progress</option>
+          </select>
+          <div class="icons">
+            <span>👁️</span>
+            <span>✏️</span>
+            <span>🗑️</span>
+          </div>
+        </div>
+        <div class="task">
+          <input type="checkbox" />
+          <span>Complete Figma Task</span>
+          <select class="status todo">
+            <option>To do</option>
+          </select>
+          <div class="icons">
+            <span>👁️</span>
+            <span>✏️</span>
+            <span>🗑️</span>
+          </div>
+        </div>
+        <div class="task">
+          <input type="checkbox" />
+          <span>Complete Portswigger lab</span>
+          <select class="status todo">
+            <option>To do</option>
+          </select>
+          <div class="icons">
+            <span>👁️</span>
+            <span>✏️</span>
+            <span>🗑️</span>
+          </div>
+        </div>
+        <button class="clear-btn">🗑️ Clear All Task</button>
+      </section>
+
+      <section class="progress-report">
+        <h3>Progress Report</h3>
+        <div class="progress-cards">
+          <div class="card todo">
+            <h4>To-Do</h4>
+            <p>Complete Figma Task</p>
+            <p>Complete Portswigger Lab</p>
+          </div>
+          <div class="card in-progress">
+            <h4>In Progress</h4>
+            <p>Workshop Task</p>
+          </div>
+          <div class="card completed">
+            <h4>Completed</h4>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
+
