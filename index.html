@@ -1,145 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Listify Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <div class="logo">
-        <span>📱</span><h1>Listify</h1>
-      </div>
-      <button class="add-task-btn">➕ Add tasks</button>
-      <nav class="nav">
-        <button class="dashboard-btn">🏠 Dashboard</button>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      <header class="topbar">
-        <div></div>
-        <div class="top-icons">
-          <span>🔔</span>
-          <span>ℹ️</span>
-          <span>👤</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listify Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <span class="logo">📋 <span>Listify</span></span>
+          <button class="menu-btn" aria-label="Menu">&#9776;</button>
         </div>
-      </header>
+        <button class="add-task-btn">+ Add tasks</button>
+        <nav>
+          <a href="#" class="nav-link active">
+            <span class="nav-icon">🏠</span>
+            Dashboard
+          </a>
+        </nav>
+      </aside>
 
-      <div class="welcome">
-        <h2>Welcome back, Kritika!!</h2>
-      </div>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h2>Welcome back, Kritika!!</h2>
+          <div class="header-icons">
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <button class="icon-btn" aria-label="Info">ℹ️</button>
+            <button class="icon-btn" aria-label="Profile">👤</button>
+          </div>
+        </header>
 
-      <section class="task-section">
-        <h3>Today</h3>
-        <div class="task">
-          <input type="checkbox" />
-          <span>Workshop Task</span>
-          <select class="status in-progress">
-            <option>In Progress</option>
-          </select>
-          <div class="icons">
-            <span>👁️</span>
-            <span>✏️</span>
-            <span>🗑️</span>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Listify Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar">
-      <div class="logo">
-        <span>📱</span><h1>Listify</h1>
-      </div>
-      <button class="add-task-btn">➕ Add tasks</button>
-      <nav class="nav">
-        <button class="dashboard-btn">🏠 Dashboard</button>
-      </nav>
-    </aside>
+        <section class="tasks-section">
+          <h3>Today</h3>
+          <ul class="task-list">
+            <li class="task-item">
+              <input type="checkbox" id="task1" />
+              <label for="task1">Workshop Task</label>
+              <select class="status in-progress">
+                <option selected>In Progress</option>
+                <option>To do</option>
+                <option>Completed</option>
+              </select>
+              <div class="task-actions">
+                <button title="View">&#128065;</button>
+                <button title="Edit">&#9998;</button>
+                <button title="Delete">&#128465;</button>
+              </div>
+            </li>
+            <li class="task-item">
+              <input type="checkbox" id="task2" />
+              <label for="task2">Complete Figma Task</label>
+              <select class="status to-do">
+                <option selected>To do</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+              </select>
+              <div class="task-actions">
+                <button title="View">&#128065;</button>
+                <button title="Edit">&#9998;</button>
+                <button title="Delete">&#128465;</button>
+              </div>
+            </li>
+            <li class="task-item">
+              <input type="checkbox" id="task3" />
+              <label for="task3">Complete Portswigger lab</label>
+              <select class="status to-do">
+                <option selected>To do</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+              </select>
+              <div class="task-actions">
+                <button title="View">&#128065;</button>
+                <button title="Edit">&#9998;</button>
+                <button title="Delete">&#128465;</button>
+              </div>
+            </li>
+          </ul>
+          <button class="clear-btn">🗑️ Clear All Task</button>
+        </section>
 
-    <main class="main-content">
-      <header class="topbar">
-        <div></div>
-        <div class="top-icons">
-          <span>🔔</span>
-          <span>ℹ️</span>
-          <span>👤</span>
-        </div>
-      </header>
-
-      <div class="welcome">
-        <h2>Welcome back, Kritika!!</h2>
-      </div>
-
-      <section class="task-section">
-        <h3>Today</h3>
-        <div class="task">
-          <input type="checkbox" />
-          <span>Workshop Task</span>
-          <select class="status in-progress">
-            <option>In Progress</option>
-          </select>
-          <div class="icons">
-            <span>👁️</span>
-            <span>✏️</span>
-            <span>🗑️</span>
+        <section class="progress-report">
+          <h3>Progress Report</h3>
+          <div class="progress-cards">
+            <div class="progress-card to-do">
+              <h4>To-Do</h4>
+              <ul>
+                <li>Complete Figma Task</li>
+                <li>Complete Portswigger Lab</li>
+              </ul>
+            </div>
+            <div class="progress-card in-progress">
+              <h4>In Progress</h4>
+              <ul>
+                <li>Workshop Task</li>
+              </ul>
+            </div>
+            <div class="progress-card completed">
+              <h4>Completed</h4>
+              <ul>
+                <!-- Completed tasks go here -->
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="task">
-          <input type="checkbox" />
-          <span>Complete Figma Task</span>
-          <select class="status todo">
-            <option>To do</option>
-          </select>
-          <div class="icons">
-            <span>👁️</span>
-            <span>✏️</span>
-            <span>🗑️</span>
-          </div>
-        </div>
-        <div class="task">
-          <input type="checkbox" />
-          <span>Complete Portswigger lab</span>
-          <select class="status todo">
-            <option>To do</option>
-          </select>
-          <div class="icons">
-            <span>👁️</span>
-            <span>✏️</span>
-            <span>🗑️</span>
-          </div>
-        </div>
-        <button class="clear-btn">🗑️ Clear All Task</button>
-      </section>
-
-      <section class="progress-report">
-        <h3>Progress Report</h3>
-        <div class="progress-cards">
-          <div class="card todo">
-            <h4>To-Do</h4>
-            <p>Complete Figma Task</p>
-            <p>Complete Portswigger Lab</p>
-          </div>
-          <div class="card in-progress">
-            <h4>In Progress</h4>
-            <p>Workshop Task</p>
-          </div>
-          <div class="card completed">
-            <h4>Completed</h4>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-</body>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
-
