@@ -1,0 +1,237 @@
+:root {
+  --primary: #1976d2;
+  --primary-light: #e3f0ff;
+  --border: #cfd8dc;
+  --background: #e9f1fc;
+  --card-bg: #fff;
+  --fb-blue: #1877f2;
+  --text: #222;
+  --muted: #888;
+  --border-radius: 12px;
+  --transition: 0.2s;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  background: var(--background);
+  color: var(--text);
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.login-illustration {
+  flex: 2 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-illustration img {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background: var(--primary-light);
+}
+
+.login-form-container {
+  flex: 1 1 0;
+  max-width: 370px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10rem;
+}
+
+.login-form {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 2.2rem 2rem 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.logo-text {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  border: 1.2px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border var(--transition);
+}
+
+.login-form input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.7rem 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.1rem;
+  transition: background var(--transition);
+}
+.login-btn:hover {
+  background: #1256a3;
+}
+
+.divider {
+  width: 100%;
+  text-align: center;
+  color: var(--muted);
+  margin: 0.7rem 0 0.7rem 0;
+  font-size: 0.98rem;
+.divider span {
+  background: var(--card-bg);
+  position: relative;
+  z-index: 1;
+  display: block;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  background: var(--border);
+}
+
+  padding: 0.7rem 0;
+  color: var(--fb-blue);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: background var(--transition), color var(--transition);
+.facebook-btn:hover {
+}
+.fb-icon {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.forgot-link {
+  text-decoration: none;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  transition: color var(--transition);
+.forgot-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+  width: 100%;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--border-radius);
+  margin-top: 1.2rem;
+  padding: 1.1rem 0;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.signup-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 0.2rem;
+  transition: text-decoration var(--transition);
+}
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .login-illustration img {
+    max-width: 350px;
+  }
+  .login-form-container {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+.signup-box {
+}
+  color: var(--muted);
+  font-size: 0.98rem;
+
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  background: var(--fb-blue);
+  font-weight: bold;
+  color: #fff;
+  background: var(--fb-blue);
+}
+  margin-bottom: 1.1rem;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1.05rem;
+  border: 1.2px solid var(--fb-blue);
+  background: #fff;
+.facebook-btn {
+  width: 100%;
+  z-index: 0;
+  height: 1px;
+  position: absolute;
+.divider:before {
+  content: "";
+}
+  padding: 0 0.7rem;
+}
+
