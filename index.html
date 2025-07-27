@@ -1,117 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Listify Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <span class="logo">📋 <span>Listify</span></span>
-          <button class="menu-btn" aria-label="Menu">&#9776;</button>
-        </div>
-        <button class="add-task-btn">+ Add tasks</button>
-        <nav>
-          <a href="#" class="nav-link active">
-            <span class="nav-icon">🏠</span>
-            Dashboard
-          </a>
-        </nav>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="main-content">
-        <header class="main-header">
-          <h2>Welcome back, Kritika!!</h2>
-          <div class="header-icons">
-            <button class="icon-btn" aria-label="Notifications">🔔</button>
-            <button class="icon-btn" aria-label="Info">ℹ️</button>
-            <button class="icon-btn" aria-label="Profile">👤</button>
-          </div>
-        </header>
-
-        <section class="tasks-section">
-          <h3>Today</h3>
-          <ul class="task-list">
-            <li class="task-item">
-              <input type="checkbox" id="task1" />
-              <label for="task1">Workshop Task</label>
-              <select class="status in-progress">
-                <option selected>In Progress</option>
-                <option>To do</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" id="task2" />
-              <label for="task2">Complete Figma Task</label>
-              <select class="status to-do">
-                <option selected>To do</option>
-                <option>In Progress</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" id="task3" />
-              <label for="task3">Complete Portswigger lab</label>
-              <select class="status to-do">
-                <option selected>To do</option>
-                <option>In Progress</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-          </ul>
-          <button class="clear-btn">🗑️ Clear All Task</button>
-        </section>
-
-        <section class="progress-report">
-          <h3>Progress Report</h3>
-          <div class="progress-cards">
-            <div class="progress-card to-do">
-              <h4>To-Do</h4>
-              <ul>
-                <li>Complete Figma Task</li>
-                <li>Complete Portswigger Lab</li>
-              </ul>
-            </div>
-            <div class="progress-card in-progress">
-              <h4>In Progress</h4>
-              <ul>
-                <li>Workshop Task</li>
-              </ul>
-            </div>
-            <div class="progress-card completed">
-              <h4>Completed</h4>
-              <ul>
-                <!-- Completed tasks go here -->
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
+<head>
+  <meta charset="UTF-8">
+  <title>Listify Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-illustration">
+      <img src="login-illustration.png" alt="Login Illustration">
     </div>
-  </body>
+    <div class="login-form-container">
+      <form class="login-form" id="loginForm" autocomplete="off">
+        <div class="logo">
+          <span class="logo-icon">📋</span>
+          <span class="logo-text">Listify</span>
+        </div>
+        <input type="text" placeholder="Phone number, username or email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Login</button>
+        <div class="divider">
+          <span>or</span>
+        </div>
+        <button type="button" class="facebook-btn">
+          <span class="fb-icon">f</span>
+          Log in with facebook
+        </button>
+        <a href="#" class="forgot-link">Forgot Password ?</a>
+      </form>
+      <div class="signup-box">
+        Don’t have an account ? <a href="#" class="signup-link">Sign up</a>
+      </div>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
 </html>
