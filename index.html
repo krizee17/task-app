@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Listify Login</title>
-  <link rel="stylesheet" href="login.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <div class="login-container">
-    <div class="login-illustration">
-      <img src="login-illustration.png" alt="Login Illustration">
-    </div>
-    <div class="login-form-container">
-      <form class="login-form" id="loginForm" autocomplete="off">
-        <div class="logo">
-          <span class="logo-icon">📋</span>
-          <span class="logo-text">Listify</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listify Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-illustration">
+        <img
+          src="login-illustration.png"
+          alt="Login Illustration"
+          class="login-illustration-img"
+        />
+      </div>
+      <div class="login-form-container">
+        <form class="login-form" id="loginForm" autocomplete="off">
+          <div class="logo">
+            <span class="logo-icon">📋</span>
+            <span class="logo-text">Listify</span>
+          </div>
+          <input
+            type="text"
+            placeholder="Phone number, username or email"
+            required
+          />
+          <input type="password" placeholder="Password" required />
+          <button type="submit" class="login-btn">Login</button>
+          <div class="divider">
+            <span>or</span>
+          </div>
+          <button type="button" class="facebook-btn">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/021/048/720/original/3d-rendering-facebook-logo-icon-free-png.png"
+              alt="Facebook Logo"
+              class="fb-icon"
+            />
+            Log in with facebook
+          </button>
+          <a href="#" class="forgot-link">Forgot Password ?</a>
+        </form>
+        <div class="signup-box">
+          Don’t have an account ? <a href="#" class="signup-link">Sign up</a>
         </div>
-        <input type="text" placeholder="Phone number, username or email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit" class="login-btn">Login</button>
-        <div class="divider">
-          <span>or</span>
-        </div>
-        <button type="button" class="facebook-btn">
-          <span class="fb-icon">f</span>
-          Log in with facebook
-        </button>
-        <a href="#" class="forgot-link">Forgot Password ?</a>
-      </form>
-      <div class="signup-box">
-        Don’t have an account ? <a href="#" class="signup-link">Sign up</a>
       </div>
     </div>
-  </div>
-  <script src="login.js"></script>
-</body>
+    <script src="login.js"></script>
+  </body>
 </html>

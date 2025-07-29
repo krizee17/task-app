@@ -9,7 +9,7 @@
   --muted: #888;
   --border-radius: 12px;
   --transition: 0.2s;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 * {
@@ -18,7 +18,8 @@
   padding: 0;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   background: var(--background);
   color: var(--text);
@@ -67,7 +68,7 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .logo {
@@ -86,7 +87,7 @@ body, html {
   font-size: 2rem;
   color: var(--primary);
   font-weight: 600;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .login-form input[type="text"],
@@ -128,42 +129,70 @@ body, html {
   text-align: center;
   color: var(--muted);
   margin: 0.7rem 0 0.7rem 0;
+  position: relative;
   font-size: 0.98rem;
+}
 .divider span {
   background: var(--card-bg);
+  padding: 0 0.7rem;
   position: relative;
   z-index: 1;
+}
+.divider:before {
+  content: "";
   display: block;
+  position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
+  height: 1px;
   background: var(--border);
+  z-index: 0;
 }
 
+.facebook-btn {
+  width: 100%;
   padding: 0.7rem 0;
+  background: #fff;
   color: var(--fb-blue);
+  border: 1.2px solid var(--fb-blue);
   border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
+  margin-bottom: 1.1rem;
   transition: background var(--transition), color var(--transition);
+}
 .facebook-btn:hover {
+  background: var(--fb-blue);
+  color: #fff;
 }
 .fb-icon {
-  color: #fff;
-  display: flex;
-  justify-content: center;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
 }
+
 .forgot-link {
+  color: var(--muted);
+  font-size: 0.98rem;
   text-decoration: none;
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   transition: color var(--transition);
+}
 .forgot-link:hover {
   color: var(--primary);
   text-decoration: underline;
 }
 
+.signup-box {
   width: 100%;
   background: var(--card-bg);
   border: 1.5px solid var(--border);
@@ -201,37 +230,3 @@ body, html {
     min-width: 0;
   }
 }
-.signup-box {
-}
-  color: var(--muted);
-  font-size: 0.98rem;
-
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  font-family: Arial, sans-serif;
-  font-size: 1.2rem;
-  background: var(--fb-blue);
-  font-weight: bold;
-  color: #fff;
-  background: var(--fb-blue);
-}
-  margin-bottom: 1.1rem;
-  justify-content: center;
-  font-weight: 500;
-  cursor: pointer;
-  font-size: 1.05rem;
-  border: 1.2px solid var(--fb-blue);
-  background: #fff;
-.facebook-btn {
-  width: 100%;
-  z-index: 0;
-  height: 1px;
-  position: absolute;
-.divider:before {
-  content: "";
-}
-  padding: 0 0.7rem;
-}
-
