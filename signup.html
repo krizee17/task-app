@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section - Sign Up Form -->
+        <div class="form-section">
+            <div class="form-card">
+                <h1 class="form-title">Sign Up</h1>
+                
+                <form class="signup-form">
+                    <div class="input-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" placeholder="Enter First Name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-users input-icon"></i>
+                        <input type="text" placeholder="Enter Last Name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" placeholder="Enter Username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" placeholder="Enter Email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" placeholder="Enter Password" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to all terms</label>
+                    </div>
+                    
+                    <button type="submit" class="register-btn">Register</button>
+                </form>
+                
+                <div class="signin-link">
+                    <p>Already have an account? <a href="#">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Section - Illustration Image -->
+        <div class="illustration-section">
+            <img src="illustration.png" alt="Digital interaction illustration" class="illustration-image">
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html> 

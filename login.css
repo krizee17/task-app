@@ -186,6 +186,8 @@ html {
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   transition: color var(--transition);
+  display: block;
+  text-align: center;
 }
 .forgot-link:hover {
   color: var(--primary);
