@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     signupForm.addEventListener('submit', function(e) {
       e.preventDefault();
       // Simulate successful signup, then redirect
-      window.location.href = 'LOGIN/index.html';
+      window.location.href = 'index.html';
     });
   }
   // Also handle the 'Sign In' link
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (signinLink) {
     signinLink.addEventListener('click', function(e) {
       e.preventDefault();
-      window.location.href = 'LOGIN/index.html';
+      window.location.href = 'index.html';
     });
   }
 });
