@@ -1,117 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Listify Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <span class="logo">📋 <span>Listify</span></span>
-          <button class="menu-btn" aria-label="Menu">&#9776;</button>
+<head>
+  <meta charset="UTF-8">
+  <title>Listify Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="logo">📋 <span>Listify</span></span>
+        <button class="menu-btn" aria-label="Menu">&#9776;</button>
+      </div>
+      <button class="add-task-btn" id="addTaskBtn">+ Add tasks</button>
+      <nav>
+        <a href="#" class="nav-link active">
+          <span class="nav-icon">🏠</span>
+          Dashboard
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <h2>Welcome back, Kritika!!</h2>
+        <div class="header-icons">
+          <button class="icon-btn" aria-label="Notifications">🔔</button>
+          <button class="icon-btn" aria-label="Info">ℹ️</button>
+          <button class="icon-btn" aria-label="Profile">👤</button>
         </div>
-        <button class="add-task-btn">+ Add tasks</button>
-        <nav>
-          <a href="#" class="nav-link active">
-            <span class="nav-icon">🏠</span>
-            Dashboard
-          </a>
-        </nav>
-      </aside>
+      </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <header class="main-header">
-          <h2>Welcome back, Kritika!!</h2>
-          <div class="header-icons">
-            <button class="icon-btn" aria-label="Notifications">🔔</button>
-            <button class="icon-btn" aria-label="Info">ℹ️</button>
-            <button class="icon-btn" aria-label="Profile">👤</button>
+      <section class="tasks-section">
+        <h3>Today</h3>
+        <ul class="task-list" id="taskList">
+          <!-- Tasks will be dynamically loaded here -->
+        </ul>
+        <button class="clear-btn" id="clearAllBtn">🗑️ Clear All Task</button>
+      </section>
+
+      <section class="progress-report">
+        <h3>Progress Report</h3>
+        <div class="progress-cards">
+          <div class="progress-card to-do">
+            <h4>To-Do</h4>
+            <ul id="todoList">
+              <!-- To-do tasks will be loaded here -->
+            </ul>
           </div>
-        </header>
-
-        <section class="tasks-section">
-          <h3>Today</h3>
-          <ul class="task-list">
-            <li class="task-item">
-              <input type="checkbox" id="task1" />
-              <label for="task1">Workshop Task</label>
-              <select class="status in-progress">
-                <option selected>In Progress</option>
-                <option>To do</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" id="task2" />
-              <label for="task2">Complete Figma Task</label>
-              <select class="status to-do">
-                <option selected>To do</option>
-                <option>In Progress</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-            <li class="task-item">
-              <input type="checkbox" id="task3" />
-              <label for="task3">Complete Portswigger lab</label>
-              <select class="status to-do">
-                <option selected>To do</option>
-                <option>In Progress</option>
-                <option>Completed</option>
-              </select>
-              <div class="task-actions">
-                <button title="View">&#128065;</button>
-                <button title="Edit">&#9998;</button>
-                <button title="Delete">&#128465;</button>
-              </div>
-            </li>
-          </ul>
-          <button class="clear-btn">🗑️ Clear All Task</button>
-        </section>
-
-        <section class="progress-report">
-          <h3>Progress Report</h3>
-          <div class="progress-cards">
-            <div class="progress-card to-do">
-              <h4>To-Do</h4>
-              <ul>
-                <li>Complete Figma Task</li>
-                <li>Complete Portswigger Lab</li>
-              </ul>
-            </div>
-            <div class="progress-card in-progress">
-              <h4>In Progress</h4>
-              <ul>
-                <li>Workshop Task</li>
-              </ul>
-            </div>
-            <div class="progress-card completed">
-              <h4>Completed</h4>
-              <ul>
-                <!-- Completed tasks go here -->
-              </ul>
-            </div>
+          <div class="progress-card in-progress">
+            <h4>In Progress</h4>
+            <ul id="inProgressList">
+              <!-- In-progress tasks will be loaded here -->
+            </ul>
           </div>
-        </section>
-      </main>
+          <div class="progress-card completed">
+            <h4>Completed</h4>
+            <ul id="completedList">
+              <!-- Completed tasks will be loaded here -->
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Add Task</h3>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <form id="addTaskForm" class="modal-form">
+        <div class="form-group">
+          <label for="taskName">Task Name</label>
+          <input type="text" id="taskName" name="taskName" placeholder="Task Name.." required>
+        </div>
+        <div class="form-group">
+          <label for="taskDescription">Task Description</label>
+          <textarea id="taskDescription" name="taskDescription" placeholder="Write a description..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="dueDate">Due Date</label>
+          <input type="date" id="dueDate" name="dueDate">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="">Select an option</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Study">Study</option>
+            <option value="Design">Design</option>
+            <option value="Health">Health</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn-confirm">Confirm</button>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
+
+  <!-- Edit Task Modal -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Edit Task</h3>
+        <button class="close-btn" id="closeEditModal">&times;</button>
+      </div>
+      <form id="editTaskForm" class="modal-form">
+        <input type="hidden" id="editTaskId">
+        <div class="form-group">
+          <label for="editTaskName">Task Name</label>
+          <input type="text" id="editTaskName" name="taskName" required>
+        </div>
+        <div class="form-group">
+          <label for="editTaskDescription">Task Description</label>
+          <textarea id="editTaskDescription" name="taskDescription" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="editDueDate">Due Date</label>
+          <input type="date" id="editDueDate" name="dueDate">
+        </div>
+        <div class="form-group">
+          <label for="editCategory">Category</label>
+          <select id="editCategory" name="category">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Study">Study</option>
+            <option value="Design">Design</option>
+            <option value="Health">Health</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="editStatus">Status</label>
+          <select id="editStatus" name="status">
+            <option value="to-do">To Do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelEditBtn">Cancel</button>
+          <button type="submit" class="btn-confirm">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- View Task Modal -->
+  <div class="modal-overlay" id="viewModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Task Details</h3>
+        <button class="close-btn" id="closeViewModal">&times;</button>
+      </div>
+      <div class="task-details">
+        <div class="detail-group">
+          <label>Task Name:</label>
+          <p id="viewTaskName"></p>
+        </div>
+        <div class="detail-group">
+          <label>Description:</label>
+          <p id="viewTaskDescription"></p>
+        </div>
+        <div class="detail-group">
+          <label>Status:</label>
+          <p id="viewTaskStatus"></p>
+        </div>
+        <div class="detail-group">
+          <label>Category:</label>
+          <p id="viewTaskCategory"></p>
+        </div>
+        <div class="detail-group">
+          <label>Due Date:</label>
+          <p id="viewTaskDueDate"></p>
+        </div>
+        <div class="detail-group">
+          <label>Created:</label>
+          <p id="viewTaskCreated"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
 </html>
