@@ -6,11 +6,15 @@ const addTaskBtn = document.getElementById('addTaskBtn');
 const taskModal = document.getElementById('taskModal');
 const editModal = document.getElementById('editModal');
 const viewModal = document.getElementById('viewModal');
+const deleteModal = document.getElementById('deleteModal');
 const closeModal = document.getElementById('closeModal');
 const closeEditModal = document.getElementById('closeEditModal');
 const closeViewModal = document.getElementById('closeViewModal');
+const closeDeleteModal = document.getElementById('closeDeleteModal');
 const cancelBtn = document.getElementById('cancelBtn');
 const cancelEditBtn = document.getElementById('cancelEditBtn');
+const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 const addTaskForm = document.getElementById('addTaskForm');
 const editTaskForm = document.getElementById('editTaskForm');
 const clearAllBtn = document.getElementById('clearAllBtn');
@@ -22,6 +26,7 @@ const completedList = document.getElementById('completedList');
 // Global variables
 let tasks = [];
 let currentTaskId = null;
+let deleteCallback = null;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -36,8 +41,11 @@ function setupEventListeners() {
     closeModal.addEventListener('click', () => closeModalFunc(taskModal));
     closeEditModal.addEventListener('click', () => closeModalFunc(editModal));
     closeViewModal.addEventListener('click', () => closeModalFunc(viewModal));
+    closeDeleteModal.addEventListener('click', () => closeModalFunc(deleteModal));
     cancelBtn.addEventListener('click', () => closeModalFunc(taskModal));
     cancelEditBtn.addEventListener('click', () => closeModalFunc(editModal));
+    cancelDeleteBtn.addEventListener('click', () => closeModalFunc(deleteModal));
+    confirmDeleteBtn.addEventListener('click', handleConfirmDelete);
     
     // Form submissions
     addTaskForm.addEventListener('submit', handleAddTask);
@@ -56,6 +64,9 @@ function setupEventListeners() {
     viewModal.addEventListener('click', (e) => {
         if (e.target === viewModal) closeModalFunc(viewModal);
     });
+    deleteModal.addEventListener('click', (e) => {
+        if (e.target === deleteModal) closeModalFunc(deleteModal);
+    });
 }
 
 // Modal functions
@@ -71,6 +82,22 @@ function closeModalFunc(modal) {
         addTaskForm.reset();
     } else if (modal === editModal) {
         editTaskForm.reset();
+    } else if (modal === deleteModal) {
+        deleteCallback = null;
+    }
+}
+
+// Delete confirmation functions
+function showDeleteConfirmation(message, callback) {
+    deleteCallback = callback;
+    document.getElementById('deleteMessage').textContent = message;
+    openModal(deleteModal);
+}
+
+async function handleConfirmDelete() {
+    if (deleteCallback) {
+        await deleteCallback();
+        closeModalFunc(deleteModal);
     }
 }
 
@@ -225,9 +252,9 @@ async function handleEditTask(e) {
 }
 
 async function handleClearAllTasks() {
-    if (confirm('Are you sure you want to clear all tasks? This action cannot be undone.')) {
+    showDeleteConfirmation('Are you sure you want to clear all tasks? This action cannot be undone.', async () => {
         await clearAllTasks();
-    }
+    });
 }
 
 // Render functions
@@ -370,9 +397,11 @@ function handleEditTaskClick(task) {
 }
 
 async function handleDeleteTask(taskId) {
-    if (confirm('Are you sure you want to delete this task?')) {
+    const task = tasks.find(t => t.id === taskId);
+    const taskName = task ? task.name : 'this task';
+    showDeleteConfirmation(`Are you sure you want to delete "${taskName}"?`, async () => {
         await deleteTask(taskId);
-    }
+    });
 }
 
 // Utility functions
