@@ -476,6 +476,10 @@ nav {
   max-width: 400px;
 }
 
+.delete-modal .modal-header h3 {
+  font-weight: 700;
+}
+
 .delete-modal-content {
   padding: 1.5rem;
   text-align: center;
@@ -489,11 +493,11 @@ nav {
 }
 
 .delete-confirm-btn {
-  background: var(--danger) !important;
+  background: var(--completed) !important;
 }
 
 .delete-confirm-btn:hover {
-  background: #c0392b !important;
+  background: #229954 !important;
 }
 
 /* Responsive */
