@@ -15,7 +15,7 @@
   --muted: #888;
   --border-radius: 12px;
   --transition: 0.2s;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 * {
@@ -478,11 +478,12 @@ nav {
 
 .delete-modal .modal-header h3 {
   font-weight: 700;
+  font-family: 'Inria Serif', serif;
 }
 
 .delete-modal-content {
   padding: 1.5rem;
-  text-align: center;
+  text-align: left;
 }
 
 .delete-modal-content p {
@@ -490,6 +491,10 @@ nav {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   line-height: 1.5;
+}
+
+.delete-modal .modal-actions {
+  justify-content: flex-start;
 }
 
 .delete-confirm-btn {
