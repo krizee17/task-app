@@ -23,5 +23,13 @@
     "express"
   ],
   "author": "Your Name",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krizee17/task-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krizee17/task-app/issues"
+  },
+  "homepage": "https://github.com/krizee17/task-app#readme"
 }

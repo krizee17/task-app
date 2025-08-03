@@ -61,6 +61,7 @@ body, html {
   font-weight: 600;
   display: flex;
   align-items: center;
+  font-family: 'Inria Serif', serif;
 }
 
 .menu-btn {
@@ -136,6 +137,7 @@ nav {
   font-size: 1.5rem;
   color: var(--primary);
   font-weight: 600;
+  font-family: 'Inria Serif', serif;
 }
 
 .header-icons {
@@ -162,6 +164,7 @@ nav {
   font-size: 1.2rem;
   margin-bottom: 1.2rem;
   color: var(--text);
+  font-family: 'Inria Serif', serif;
 }
 
 .task-list {
@@ -256,6 +259,7 @@ nav {
   font-size: 1.2rem;
   margin-bottom: 1.2rem;
   color: var(--text);
+  font-family: 'Inria Serif', serif;
 }
 
 .progress-cards {
@@ -342,6 +346,7 @@ nav {
   font-size: 1.3rem;
   color: var(--text);
   font-weight: 600;
+  font-family: 'Inria Serif', serif;
 }
 
 .close-btn {
@@ -379,6 +384,7 @@ nav {
   font-weight: 600;
   color: var(--text);
   font-size: 0.95rem;
+  font-family: 'Inria Serif', serif;
 }
 
 .form-group input,
@@ -459,6 +465,7 @@ nav {
   color: var(--text);
   margin-bottom: 0.3rem;
   font-size: 0.95rem;
+  font-family: 'Inria Serif', serif;
 }
 
 .detail-group p {
