@@ -39,7 +39,7 @@ body, html {
 .sidebar {
   width: 260px;
   background: var(--sidebar-bg);
-  border-right: 2px solid var(--sidebar-border);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   padding: 0 1.5rem;
