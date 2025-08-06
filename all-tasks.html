@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Tasks - Listify</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="logo">📋 <span>Listify</span></span>
+        <button class="menu-btn" aria-label="Menu">&#9776;</button>
+      </div>
+      <button class="add-task-btn" id="addTaskBtn">+ Add tasks</button>
+      <nav>
+        <a href="dashboard.html" class="nav-link">
+          <span class="nav-icon">🏠</span>
+          Dashboard
+        </a>
+        <a href="#" class="nav-link active">
+          <span class="nav-icon">📋</span>
+          All Tasks
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="all-tasks-container">
+      <div class="all-tasks-header">
+        <span class="all-tasks-title">All Tasks</span>
+        <div class="all-tasks-filters">
+          <label for="filterStatus">Status:</label>
+          <select id="filterStatus">
+            <option value="all">All</option>
+            <option value="to-do">To do</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <label for="filterDate">Date:</label>
+          <input type="date" id="filterDate">
+          <button id="clearFilters" class="add-task-btn" style="padding: 0.4rem 1rem; font-size: 0.95rem;">Clear Filters</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="all-tasks-table" id="allTasksTable">
+          <thead>
+            <tr>
+              <th>Task Name</th>
+              <th>Due Date</th>
+              <th>Scheduled On</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="allTasksTbody">
+            <!-- Tasks will be loaded here -->
+          </tbody>
+        </table>
+        <div id="allTasksEmpty" class="all-tasks-empty" style="display:none;">No tasks found for the selected filters.</div>
+      </div>
+    </main>
+  </div>
+  <script src="all-tasks.js"></script>
+</body>
+</html>
