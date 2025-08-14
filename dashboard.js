@@ -25,11 +25,13 @@ const completedList = document.getElementById('completedList');
 
 // Global variables
 let tasks = [];
+let categories = [];
 let currentTaskId = null;
 let deleteCallback = null;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    loadCategories();
     loadTasks();
     setupEventListeners();
 });
@@ -102,6 +104,19 @@ async function handleConfirmDelete() {
 }
 
 // API Functions
+async function loadCategories() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/categories`);
+        if (!response.ok) throw new Error('Failed to fetch categories');
+        
+        categories = await response.json();
+        updateCategoryDropdowns();
+    } catch (error) {
+        console.error('Error loading categories:', error);
+        // Don't show error notification for categories as it's not critical
+    }
+}
+
 async function loadTasks() {
     try {
         const response = await fetch(`${API_BASE_URL}/tasks`);
@@ -405,6 +420,32 @@ async function handleDeleteTask(taskId) {
 }
 
 // Utility functions
+function updateCategoryDropdowns() {
+    const categorySelect = document.getElementById('category');
+    const editCategorySelect = document.getElementById('editCategory');
+    
+    // Clear existing options except "General"
+    if (categorySelect) {
+        categorySelect.innerHTML = '<option value="General">General</option>';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.name;
+            option.textContent = category.name;
+            categorySelect.appendChild(option);
+        });
+    }
+    
+    if (editCategorySelect) {
+        editCategorySelect.innerHTML = '<option value="General">General</option>';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.name;
+            option.textContent = category.name;
+            editCategorySelect.appendChild(option);
+        });
+    }
+}
+
 function showNotification(message, type = 'info') {
     // Create notification element
     const notification = document.createElement('div');
