@@ -1,9 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const path = require('path');
-const mongoose = require('mongoose');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const path = require("path");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,10 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'LOGIN')));
+app.use(express.static(path.join(__dirname, "LOGIN")));
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/todo_app';
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/todo_app";
 
 // MongoDB connection options
 const mongoOptions = {
@@ -25,72 +25,75 @@ const mongoOptions = {
   socketTimeoutMS: 45000,
   maxPoolSize: 10,
   serverApi: {
-    version: '1',
+    version: "1",
     strict: true,
     deprecationErrors: true,
-  }
+  },
 };
 
 // Connect to MongoDB
 mongoose
   .connect(MONGO_URI, mongoOptions)
   .then(() => {
-    console.log('Connected to MongoDB successfully');
+    console.log("Connected to MongoDB successfully");
     console.log(`Database: ${MONGO_URI}`);
   })
   .catch((err) => {
-    console.error('MongoDB connection error:', err.message);
-    console.log('Make sure MongoDB is running on your system');
-    console.log('You can install MongoDB from: https://www.mongodb.com/try/download/community');
+    console.error("MongoDB connection error:", err.message);
+    console.log("Make sure MongoDB is running on your system");
+    console.log(
+      "You can install MongoDB from: https://www.mongodb.com/try/download/community"
+    );
     process.exit(1);
   });
 
 // MongoDB connection event handlers
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB connection error:', err);
+mongoose.connection.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
 });
 
-mongoose.connection.on('disconnected', () => {
-  console.log('⚠️  MongoDB disconnected');
+mongoose.connection.on("disconnected", () => {
+  console.log("⚠️  MongoDB disconnected");
 });
 
 // Graceful shutdown
-process.on('SIGINT', async () => {
+process.on("SIGINT", async () => {
   try {
     await mongoose.connection.close();
-    console.log('MongoDB connection closed through app termination');
+    console.log("MongoDB connection closed through app termination");
     process.exit(0);
   } catch (err) {
-    console.error('Error during MongoDB connection closure:', err);
+    console.error("Error during MongoDB connection closure:", err);
     process.exit(1);
   }
 });
 
 // Import routes
-const taskRoutes = require('./routes/taskRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
+const taskRoutes = require("./routes/taskRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 
 // API Routes
-app.use('/api/tasks', taskRoutes);
-app.use('/api/categories', categoryRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/categories", categoryRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get("/api/health", (req, res) => {
   res.json({
-    status: 'OK',
+    status: "OK",
     timestamp: new Date().toISOString(),
-    database: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
-    uptime: process.uptime()
+    database:
+      mongoose.connection.readyState === 1 ? "Connected" : "Disconnected",
+    uptime: process.uptime(),
   });
 });
 
 // Serve the main dashboard
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'LOGIN', 'dashboard.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "LOGIN", "dashboard.html"));
 });
 
 // Error handling middleware
-const { errorHandler, notFound } = require('./middleware/errorHandler');
+const { errorHandler, notFound } = require("./middleware/errorHandler");
 app.use(notFound);
 app.use(errorHandler);
 
@@ -111,5 +114,7 @@ app.listen(PORT, () => {
   console.log(`  GET    /api/tasks/search - Search tasks`);
   console.log(`  GET    /api/tasks/today - Get today's tasks`);
   console.log(`  GET    /api/tasks/status/:status - Get tasks by status`);
+  console.log(`  GET    /api/categories - Get all categories`);
+  console.log(`  POST    /api/categories - Create new category`);
   console.log(`  GET    /api/tasks/category/:category - Get tasks by category`);
-}); 
+});
