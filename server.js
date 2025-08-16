@@ -116,5 +116,7 @@ app.listen(PORT, () => {
   console.log(`  GET    /api/tasks/status/:status - Get tasks by status`);
   console.log(`  GET    /api/categories - Get all categories`);
   console.log(`  POST    /api/categories - Create new category`);
+  console.log(`  PUT    /api/categories - Update category`);
+  console.log(`  DELETE    /api/categories - Delete category`);
   console.log(`  GET    /api/tasks/category/:category - Get tasks by category`);
 });
