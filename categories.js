@@ -271,7 +271,7 @@ async function handleDeleteCategory(categoryId) {
     const category = categories.find(cat => cat.id === categoryId);
     const categoryName = category ? category.name : 'this category';
     
-    showDeleteConfirmation(`Are you sure you want to delete "${categoryName}"? This action cannot be undone.`, async () => {
+    showDeleteConfirmation(`Are you sure you want to delete "${categoryName}"?`, async () => {
         await deleteCategory(categoryId);
     });
 }
