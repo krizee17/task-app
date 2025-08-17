@@ -225,6 +225,13 @@ async function updateCategory(categoryId, categoryData) {
 
 async function deleteCategory(categoryId) {
     try {
+        // Show loading state
+        const deleteBtn = document.querySelector(`[onclick="handleDeleteCategory('${categoryId}')"]`);
+        if (deleteBtn) {
+            deleteBtn.disabled = true;
+            deleteBtn.textContent = 'Deleting...';
+        }
+        
         const response = await fetch(`${API_BASE_URL}/categories/${categoryId}`, {
             method: 'DELETE'
         });
@@ -240,6 +247,13 @@ async function deleteCategory(categoryId) {
     } catch (error) {
         console.error('Error deleting category:', error);
         showNotification(error.message, 'error');
+    } finally {
+        // Reset button state if it still exists
+        const deleteBtn = document.querySelector(`[onclick="handleDeleteCategory('${categoryId}')"]`);
+        if (deleteBtn) {
+            deleteBtn.disabled = false;
+            deleteBtn.textContent = 'Delete';
+        }
     }
 }
 
@@ -267,7 +281,7 @@ async function handleSubmitCategory(e) {
     }
 }
 
-async function handleDeleteCategory(categoryId) {
+async function performDeleteCategory(categoryId) {
     const category = categories.find(cat => cat.id === categoryId);
     const categoryName = category ? category.name : 'this category';
     
@@ -315,7 +329,7 @@ window.handleEditCategory = function(categoryId) {
 };
 
 window.handleDeleteCategory = function(categoryId) {
-    handleDeleteCategory(categoryId);
+    performDeleteCategory(categoryId);
 };
 
 // Utility functions
