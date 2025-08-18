@@ -67,6 +67,58 @@
         <div id="allTasksEmpty" class="all-tasks-empty" style="display:none;">No tasks found for the selected filters.</div>
       </div>
     </main>
+		<!-- View Task Modal -->
+		<div class="modal-overlay" id="viewModal">
+			<div class="modal">
+				<div class="modal-header">
+					<h3>Task Details</h3>
+					<button class="close-btn" id="closeViewModal">&times;</button>
+				</div>
+				<div class="task-details">
+					<div class="detail-group">
+						<label>Task Name:</label>
+						<p id="viewTaskName"></p>
+					</div>
+					<div class="detail-group">
+						<label>Description:</label>
+						<p id="viewTaskDescription"></p>
+					</div>
+					<div class="detail-group">
+						<label>Status:</label>
+						<p id="viewTaskStatus"></p>
+					</div>
+					<div class="detail-group">
+						<label>Category:</label>
+						<p id="viewTaskCategory"></p>
+					</div>
+					<div class="detail-group">
+						<label>Due Date:</label>
+						<p id="viewTaskDueDate"></p>
+					</div>
+					<div class="detail-group">
+						<label>Created:</label>
+						<p id="viewTaskCreated"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Delete Confirmation Modal -->
+		<div class="modal-overlay" id="deleteModal">
+			<div class="modal delete-modal">
+				<div class="modal-header">
+					<h3>Do you want to delete?</h3>
+					<button class="close-btn" id="closeDeleteModal">&times;</button>
+				</div>
+				<div class="delete-modal-content">
+					<p id="deleteMessage">Are you sure you want to delete this item?</p>
+					<div class="modal-actions">
+						<button type="button" class="btn-cancel" id="cancelDeleteBtn">Cancel</button>
+						<button type="button" class="btn-confirm delete-confirm-btn" id="confirmDeleteBtn">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
   </div>
   <script src="all-tasks.js"></script>
 </body>
