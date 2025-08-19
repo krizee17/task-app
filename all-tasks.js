@@ -38,6 +38,15 @@ window.addEventListener('DOMContentLoaded', () => {
   // Click outside to close
   if (viewModal) viewModal.addEventListener('click', (e) => { if (e.target === viewModal) closeModalFunc(viewModal); });
   if (deleteModal) deleteModal.addEventListener('click', (e) => { if (e.target === deleteModal) closeModalFunc(deleteModal); });
+
+  // Sidebar toggle
+  const menuBtn = document.querySelector('.menu-btn');
+  const sidebar = document.querySelector('.sidebar');
+  if (menuBtn && sidebar) {
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+    });
+  }
 });
 
 // Modal helpers
