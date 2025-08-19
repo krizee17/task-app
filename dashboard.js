@@ -284,16 +284,28 @@ async function handleClearAllTasks() {
 // Render functions
 function renderTasks() {
     taskList.innerHTML = '';
-    
-    if (tasks.length === 0) {
-        taskList.innerHTML = '<li class="task-item empty-state">No tasks found. Add a new task to get started!</li>';
+
+    const todayISO = toYmdLocal(new Date());
+    const todaysTasks = tasks.filter(t => t.createdAt && toYmdLocal(t.createdAt) === todayISO);
+
+    if (todaysTasks.length === 0) {
+        taskList.innerHTML = '<li class="task-item empty-state">No tasks scheduled for today.</li>';
         return;
     }
-    
-    tasks.forEach(task => {
+
+    todaysTasks.forEach(task => {
         const taskElement = createTaskElement(task);
         taskList.appendChild(taskElement);
     });
+}
+
+function toYmdLocal(dateOrStr) {
+    const d = new Date(dateOrStr);
+    if (isNaN(d)) return '';
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
 }
 
 function createTaskElement(task) {

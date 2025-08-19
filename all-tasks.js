@@ -101,7 +101,11 @@ function renderFilteredTasks() {
     filtered = filtered.filter(task => task.status === status);
   }
   if (date) {
-    filtered = filtered.filter(task => (task.dueDate && task.dueDate.startsWith(date)) || (task.scheduledOn && task.scheduledOn.startsWith(date)));
+    filtered = filtered.filter(task => {
+      const dueMatches = task.dueDate ? toYmdLocal(task.dueDate) === date : false;
+      const createdMatches = task.createdAt ? toYmdLocal(task.createdAt) === date : false;
+      return dueMatches || createdMatches;
+    });
   }
 
   renderTasksTable(filtered);
@@ -125,7 +129,7 @@ function renderTasksTable(tasks) {
     tr.innerHTML = `
       <td>${escapeHtml(task.name)}</td>
       <td>${task.dueDate ? formatDate(task.dueDate) : '-'}</td>
-      <td>${task.scheduledOn ? formatDate(task.scheduledOn) : '-'}</td>
+      <td>${task.createdAt ? formatDate(task.createdAt) : '-'}</td>
       <td><span class="all-tasks-status ${task.status}">${formatStatus(task.status)}</span></td>
       <td>
         <div class="task-actions">
@@ -156,6 +160,15 @@ function escapeHtml(text) {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
+}
+
+function toYmdLocal(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d)) return '';
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 // View, Edit, Delete handlers using dashboard-style modals
