@@ -87,7 +87,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Serve the main dashboard
+// Serve the dashboard
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "LOGIN", "dashboard.html"));
 });

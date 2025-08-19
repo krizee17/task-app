@@ -207,7 +207,7 @@ window.deleteTask = function(id) {
       allTasks = allTasks.filter(t => t.id !== id);
       renderFilteredTasks();
     } catch (error) {
-      // Fallback alert for error
+      // Fallback alert for the error
       alert('Error deleting task.');
     }
   });
