@@ -45,6 +45,27 @@ body, html {
   flex-direction: column;
   padding: 0 1.5rem;
   min-height: 100vh;
+  transition: width var(--transition), padding var(--transition);
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 64px;
+  padding: 0.5rem;
+  overflow: hidden;
+  border: none;
+}
+
+.sidebar.collapsed .sidebar-header {
+  margin-bottom: 0;
+  border-bottom: none;
+  justify-content: center;
+}
+
+.sidebar.collapsed .logo span,
+.sidebar.collapsed .add-task-btn,
+.sidebar.collapsed nav {
+  display: none;
 }
 
 .sidebar-header {
