@@ -13,7 +13,7 @@ A full-stack task management application built with Node.js, Express, MongoDB, a
 - Responsive design
 - User authentication (frontend)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose ODM
@@ -89,7 +89,7 @@ npm start
 
 The application will be available at `http://localhost:3000`
 
-## 📖 API Documentation
+##  API Documentation
 
 ### Base URL
 ```
